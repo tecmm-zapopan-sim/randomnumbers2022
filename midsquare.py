@@ -38,24 +38,21 @@ def get_middle_number(seed,d):
     n = len(cadena)
     mid = int(n/2)
     mid_d = int(d/2)
-    return cadena[mid-mid_d:mid+mid_d]
+    return int(cadena[mid-mid_d:mid+mid_d])
 
 
-def midsquare(seed):
+def midsquare(seed,n):
     d = len(str(seed))
+    r = []
     if d > 3:
+        xi = seed
+        for _ in range(n):
+            yi = xi**2
+            xi = get_middle_number(yi,d)
+            ri = "0." + str(xi)
+            r.append(float(ri))
+    return r
 
-        y0 = seed**2
-        print(y0)
-        x1 = get_middle_number(y0,d)
-        r1 = "0." + x1
-        print(r1)
 
-        y1 = int(x1)**2
-        print(y1)
-        x2 = get_middle_number(y1,d)
-        r2 = "0." + x2
-        print(r2)
-
-midsquare(1234)
+print(midsquare(5735,5))
 
