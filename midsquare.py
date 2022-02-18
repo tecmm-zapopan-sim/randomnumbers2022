@@ -47,13 +47,16 @@ def midsquare(seed, n):
     r = []
     if d > 3:
         xi = seed
-        for i in range(n):
+        for _ in range(n):
             yi = xi ** 2
             xi = get_middle_number(yi, d)
             ri = "0." + xi
             xi = int(xi)
             r.append(float(ri))
     return r
+
+
+print(midsquare(9999, 30))
 
 
 def midproduct(seed1, seed2, n):
@@ -63,7 +66,7 @@ def midproduct(seed1, seed2, n):
     if d1 == d2 and d1 > 3:
         xi = seed1
         xi1 = seed2
-        for i in range(n):
+        for _ in range(n):
             yi = xi * xi1
             xi2 = get_middle_number(yi, d1)
             ri = "0." + xi2
@@ -74,6 +77,20 @@ def midproduct(seed1, seed2, n):
     return r
 
 
-print(midsquare(9999, 30))
+print(midproduct(5015,5734,5))
 
-print(midproduct(5015, 5734, 5))
+def constantmultiplier(seed, a, n):
+    d = len(str(seed))
+    r = []
+    if d > 3:
+        xi = seed
+        for _ in range(n):
+            yi = xi * a
+            xi = get_middle_number(yi, d)
+            ri = "0." + xi
+            xi = int(xi)
+            r.append(float(ri))
+    return r
+
+
+print(constantmultiplier(9803, 6965, 5))
