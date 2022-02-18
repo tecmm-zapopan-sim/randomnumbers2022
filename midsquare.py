@@ -1,5 +1,6 @@
 import math
 
+
 def digitos(x):
     count = 0
     while (x != 0):
@@ -33,26 +34,46 @@ Long longcentro(long long Yi, int d) {
 '''
 
 
-def get_middle_number(seed,d):
+def get_middle_number(seed, d):
     cadena = str(seed)
     n = len(cadena)
-    mid = int(n/2)
-    mid_d = int(d/2)
-    return int(cadena[mid-mid_d:mid+mid_d])
+    mid = int(n / 2)
+    mid_d = int(d / 2)
+    return cadena[mid - mid_d:mid + mid_d]
 
 
-def midsquare(seed,n):
+def midsquare(seed, n):
     d = len(str(seed))
     r = []
     if d > 3:
         xi = seed
-        for _ in range(n):
-            yi = xi**2
-            xi = get_middle_number(yi,d)
-            ri = "0." + str(xi)
+        for i in range(n):
+            yi = xi ** 2
+            xi = get_middle_number(yi, d)
+            ri = "0." + xi
+            xi = int(xi)
             r.append(float(ri))
     return r
 
 
-print(midsquare(5735,5))
+def midproduct(seed1, seed2, n):
+    d1 = len(str(seed1))
+    d2 = len(str(seed2))
+    r = []
+    if d1 == d2 and d1 > 3:
+        xi = seed1
+        xi1 = seed2
+        for i in range(n):
+            yi = xi * xi1
+            xi2 = get_middle_number(yi, d1)
+            ri = "0." + xi2
+            xi2 = int(xi2)
+            xi = xi1
+            xi1 = xi2
+            r.append(float(ri))
+    return r
 
+
+print(midsquare(9999, 30))
+
+print(midproduct(5015, 5734, 5))
